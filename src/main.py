@@ -3,13 +3,17 @@ from textnode import *
 from extract_markdown import *
 import os
 import shutil
+import sys
 
 def main():
+    basepath = "/"
+    if len(sys.argv)>1:
+        basepath = sys.argv[1]
     #node = TextNode("This is some anchor text", TextType.LINK, "https://www.boot.dev")
     #print(node)
-    copy("./static", "./public")
+    #copy("./static", "./docs")
     #generate_page("./content/index.md","./template.html","public/index.html")
-    generate_pages_recursive("./content", "./template.html","./public")
+    generate_pages_recursive("./content", "./template.html","./docs", basepath)
 
 def copy(src, dest):
     if not os.path.exists(src):
