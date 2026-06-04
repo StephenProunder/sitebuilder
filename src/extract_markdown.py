@@ -23,8 +23,7 @@ def generate_page(from_path, template_path, dest_path, basepath):
     pageContent = markdown_to_html_node(mdFile).to_html()
     pageTitle = extract_title(mdFile)
 
-    hrefPath = f'href="{basepath}'
-    template = template.replace("{{ Title }}", pageTitle).replace("{{ Content }}", pageContent).replace('href="/', hrefPath)
+    template = template.replace("{{ Title }}", pageTitle).replace("{{ Content }}", pageContent).replace('href="/', f'href="{basepath}').replace('src="/',f'src"{basepath}')
     print(template)
     destDir = os.path.dirname(dest_path)
     if not os.path.exists(destDir):
