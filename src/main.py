@@ -11,7 +11,7 @@ def main():
         basepath = sys.argv[1]
     #node = TextNode("This is some anchor text", TextType.LINK, "https://www.boot.dev")
     #print(node)
-    #copy("./static", "./docs")
+    copy("./static", "./docs")
     #generate_page("./content/index.md","./template.html","public/index.html")
     generate_pages_recursive("./content", "./template.html","./docs", basepath)
 
